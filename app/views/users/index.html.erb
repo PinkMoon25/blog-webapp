@@ -1,1 +1,14 @@
-<h1>List of all users</h1>
+<section>
+  <h1>List of all users</h1>
+  <ul> 
+    <% @users.each do |user| %>
+      <li> 
+        <img src=<%= user.photo %> />
+        <div>
+          <h3><%= user.name %> </h3>
+          <span><%= user.posts_count %></span>
+        </div>
+      </li>
+    <% end %>
+  </ul>
+</section>
