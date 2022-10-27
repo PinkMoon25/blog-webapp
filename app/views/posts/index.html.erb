@@ -9,13 +9,13 @@
    <%@author.posts.each do |post|%>
     <li> 
       <div>
-        <h3><%=post.title %></h3>
+        <h3><%=link_to post.title, user_post_path(@author, post)%></h3>
         <p><%=post.text%></p>
         <div>
           <span> <%=post.comments_count%> </span>
            <span> <%=post.likes_count%> </span>
         </div>
-        <%post.comments.each do |comment|%>
+        <%post.recent_comments.each do |comment|%>
           <li><p> <span><%=comment.author.name %> :</span> <%=comment.text%>  </p></li>
         <%end%>
       </div>
