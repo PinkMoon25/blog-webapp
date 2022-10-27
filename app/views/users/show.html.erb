@@ -1,1 +1,24 @@
-<h1> A specific user based on user id </h1>
+<section> 
+  <h1> A specific user based on user id </h1>
+  <div>
+    <img src=<%= @author.photo %> />
+    <div>
+      <h2><%=@author.name%> </h2> 
+      <span><%= @author.posts_count %></span>
+    </div>
+  </div>
+  <p> <%=@author.bio%> </p>
+  <ul>
+    <%@author.recent_posts.each do |post|%>
+      <li>
+        <h3><%=post.title %></h3>
+        <p><%=post.text%></p>
+        <div>
+          <span> <%=post.comments_count%> </span>
+           <span> <%=post.likes_count%> </span>
+        </div>
+      </li>
+    <%end%>
+  </ul>
+  <%= link_to "See all posts", user_posts_path(@author)%>
+</section>

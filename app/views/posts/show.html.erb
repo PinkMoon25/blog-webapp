@@ -1,1 +1,16 @@
-<h1> Specific post of a user based on post id </h1>
+<section>
+  <h1> Specific post of a user based on post id </h1>
+  <div> 
+    <h3> <%=@post.title%> <span> by <%= @post.author.name%> </span></h3>
+    <div>
+      <span>Comments: <%=@post.comments_count%> </span>
+      <span>Likes: <%=@post.likes_count%> </span> 
+    </div>
+    <p> <%=@post.text%> </p>
+  </div>
+  <ul>
+  <%@post.comments.each do |comment|%>
+    <li><p> <span><%=comment.author.name %> :</span> <%=comment.text%>  </p></li>
+  <%end%>
+  </ul>
+</section>
