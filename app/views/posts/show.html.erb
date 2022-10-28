@@ -8,10 +8,7 @@
       <span>Likes: <%=@post.likes_count%> </span> 
     </div>
   </div>
-  <%= bootstrap_form_with model: @comment, url: user_all_posts_path, method: :post, local: true do |f|%>
-  <%= f.text_area :text%>
-  <%= f.submit 'Add comment'%>
-  <%end%>
+  <button> <%=link_to 'Add comment', new_comment_path(@post.author, @post)%> </button>
 
   <%= form_with model: @like, url: like_path , method: :post do |f|%>
     <%= f.submit 'Like' %>

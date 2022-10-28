@@ -6,7 +6,6 @@ class PostsController < ApplicationController
   def show
     @author = User.find(params[:user_id])
     @post = @author.posts.find((params[:id]))
-    @comment = Comment.new
     @like = Like.new
   end
 
@@ -15,7 +14,7 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.new(params.require(:post).permit(:title, :text))
+    @post = Post.new(post_params)
     @post.author = current_user
     @post.comments_count = 0
     @post.likes_count = 0
@@ -26,5 +25,11 @@ class PostsController < ApplicationController
       flash.now[:error] = 'Post creation failed!'
       render :new
     end
+  end
+
+  private
+
+  def post_params
+    params.require(:post).permit(:title, :text)
   end
 end
