@@ -6,6 +6,7 @@ class PostsController < ApplicationController
   def show
     @author = User.find(params[:user_id])
     @post = @author.posts.find((params[:id]))
+    @comment = Comment.new
     @like = Like.new
   end
 
