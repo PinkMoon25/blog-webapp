@@ -1,5 +1,4 @@
 class CommentsController < ApplicationController
-
   def create
     @post = current_user.posts.find(params[:id])
     @comment = Comment.new(params.require(:comment).permit(:text))
@@ -13,5 +12,4 @@ class CommentsController < ApplicationController
       render :new
     end
   end
-
 end
