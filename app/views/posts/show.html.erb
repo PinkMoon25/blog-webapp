@@ -2,12 +2,18 @@
   <h1> Specific post of a user based on post id </h1>
   <div> 
     <h3> <%=@post.title%> <span> by <%= @post.author.name%> </span></h3>
+     <p> <%=@post.text%> </p>
     <div>
       <span>Comments: <%=@post.comments_count%> </span>
       <span>Likes: <%=@post.likes_count%> </span> 
     </div>
-    <p> <%=@post.text%> </p>
   </div>
+  <button> <%=link_to 'Add comment', new_comment_path(@post.author, @post)%> </button>
+
+  <%= form_with model: @like, url: like_path , method: :post do |f|%>
+    <%= f.submit 'Like' %>
+  <%end%>
+
   <ul>
   <%@post.comments.each do |comment|%>
     <li><p> <span><%=comment.author.name %> :</span> <%=comment.text%>  </p></li>
