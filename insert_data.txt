@@ -1,10 +1,10 @@
-first_user = User.create(name: 'Rohan', photo: 'https://unsplash.com/photos/F_-0BxGuVvo', bio: 'Kid on the Block.')
-second_user = User.create(name: 'Lilly', photo: 'https://unsplash.com/photos/F_-0BxGuVvo', bio: 'Teacher from Poland.')
+first_user = User.create(name: 'Rohan', photo: 'https://unsplash.com/photos/F_-0BxGuVvo', bio: 'Kid on the Block.', posts_count: 0)
+second_user = User.create(name: 'Lilly', photo: 'https://unsplash.com/photos/F_-0BxGuVvo', bio: 'Teacher from Poland.', posts_count: 0)
 
-  first_post = Post.create(author: first_user, title: 'Hello', text: 'This is my first post')
-  second_post = Post.create(author: first_user, title: 'Hello rails', text: 'This is my second post')
-  third_post = Post.create(author: first_user, title: 'Hello database', text: 'This is my third post')
-  fourth_post = Post.create(author: first_user, title: 'Hello ruby', text: 'This is my fourth post')
+  first_post = Post.create(author: first_user, title: 'Hello', text: 'This is my first post', comments_count: 0, likes_count: 0)
+  second_post = Post.create(author: first_user, title: 'Hello rails', text: 'This is my second post', comments_count: 0, likes_count: 0)
+  third_post = Post.create(author: first_user, title: 'Hello database', text: 'This is my third post', comments_count: 0, likes_count: 0)
+  fourth_post = Post.create(author: first_user, title: 'Hello ruby', text: 'This is my fourth post', comments_count: 0, likes_count: 0)
 
      Comment.create(post: first_post, author: second_user, text: 'Hi Tom!' )
      Comment.create(post: first_post, author: second_user, text: 'Hi Tom! are you there' )
