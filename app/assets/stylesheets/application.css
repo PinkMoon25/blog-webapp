@@ -13,7 +13,7 @@
  *= require_tree .
  *= require_self
  */
-body {
+body,* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -33,4 +33,17 @@ ul > li {
   display: flex;
   justify-content: space-around;
   list-style: none;
+}
+
+section.login-form, section.signup-form {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+form {
+  width: 65%;
 }
