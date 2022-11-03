@@ -28,6 +28,8 @@ ul {
   display: flex;
   flex-direction: column;
   gap: 16px;
+  justify-content: center;
+  align-items: center;
 }
 
 ul > li {
@@ -48,4 +50,8 @@ section.signup-form {
 
 form {
   width: 65%;
+}
+
+button {
+  width: max-content;
 }
