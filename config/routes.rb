@@ -10,4 +10,6 @@ Rails.application.routes.draw do
   post '/users/:user_id/posts/:id', to: 'comments#create'
   get '/users/:user_id/posts/:id/comments/new', to: 'comments#new', as: 'new_comment'
   post '/users/:user_id/posts/:id/likes', to: 'likes#create', as: 'like'
+  delete '/users/:user_id/posts/:id', to: 'posts#destroy'
+  delete '/users/:user_id/posts/:id/comments', to: 'comments#destroy'
 end
