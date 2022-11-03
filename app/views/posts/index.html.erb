@@ -9,7 +9,7 @@
    <%@posts.each do |post|%>
     <li> 
       <div>
-        <h3><%=link_to post.title, user_all_posts_path(@author, post)%></h3>
+        <h3><%=link_to post.title, user_post_show_path(@author, post)%></h3>
         <p><%=post.text%></p>
         <div>
           <span> <%=post.comments_count%> </span>

@@ -5,7 +5,7 @@ class LikesController < ApplicationController
     @like.author = current_user
     @like.post = @post
     if @like.save
-      redirect_to user_all_posts_path(current_user, @post)
+      redirect_to user_post_show_path(current_user, @post)
     else
       flash[:error] = 'Could not add likes'
     end

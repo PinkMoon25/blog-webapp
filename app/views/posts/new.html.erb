@@ -1,7 +1,7 @@
 <section>
   <h1>Create a new post</h1>
 
-  <%= bootstrap_form_with model: @post, url: user_recent_posts_path, method: :post, local: true do |f|%>
+  <%= bootstrap_form_with model: @post, url: user_post_index_path, method: :post, local: true do |f|%>
     <%= f.text_field  :title %>
     <%= f.text_area :text %>
     <%= f.submit %>
