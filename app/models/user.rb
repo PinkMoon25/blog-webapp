@@ -4,9 +4,9 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :confirmable
 
-  has_many :posts, foreign_key: 'author_id'
-  has_many :likes, foreign_key: 'author_id'
-  has_many :comments, foreign_key: 'author_id'
+  has_many :posts, foreign_key: 'author_id', dependent: :destroy
+  has_many :likes, foreign_key: 'author_id', dependent: :destroy
+  has_many :comments, foreign_key: 'author_id', dependent: :destroy
   before_validation :set_counter
 
   validates :name, presence: true
@@ -18,5 +18,9 @@ class User < ApplicationRecord
 
   def recent_posts
     posts.order(created_at: :desc).limit(3)
+  end
+
+  def admin?
+    role == 'admin'
   end
 end
