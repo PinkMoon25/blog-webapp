@@ -11,5 +11,9 @@ Rails.application.routes.draw do
   get '/users/:user_id/posts/:id/comments/new', to: 'comments#new', as: 'new_comment'
   post '/users/:user_id/posts/:id/likes', to: 'likes#create', as: 'like'
   delete '/users/:user_id/posts/:id', to: 'posts#destroy'
-  delete '/users/:user_id/posts/:id/comments', to: 'comments#destroy'
+  delete '/users/:user_id/posts/:post_id/comments/:id', to: 'comments#destroy'
+  get "api/users/:user_id/posts", to: 'api/posts#index'
+  get "api/users/:user_id/posts/:id/comments", to: 'api/posts#show'
+  post "api/users/:user_id/posts/:id/comments", to: 'api/comments#create'
+  post 'authenticate', to: 'authentication#authenticate'
 end
