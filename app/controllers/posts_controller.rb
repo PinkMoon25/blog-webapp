@@ -1,4 +1,6 @@
 class PostsController < ApplicationController
+  load_and_authorize_resource
+
   def index
     @author = User.find(params[:user_id])
     @posts = @author.posts.includes(:comments)
@@ -21,11 +23,18 @@ class PostsController < ApplicationController
     @post.likes_count = 0
     if @post.save
       flash[:success] = 'Post created successfully!'
-      redirect_to user_recent_posts_path(current_user)
+      redirect_to user_post_index_path(current_user)
     else
       flash.now[:error] = 'Post creation failed!'
       render :new
     end
+  end
+
+  def destroy
+    @post = Post.find(params[:id])
+    @post.destroy
+    redirect_to user_post_show_path(current_user, @post)
+    flash[:success] = 'Post deleted successfully'
   end
 
   private

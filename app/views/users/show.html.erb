@@ -11,7 +11,7 @@
   <ul>
     <%@author.recent_posts.each do |post|%>
       <li>
-        <h3><%= link_to post.title, user_all_posts_path(@author, post) %></h3>
+        <h3><%= link_to post.title, user_post_show_path(@author, post) %></h3>
         <p><%=post.text%></p>
         <div>
           <span> <%=post.comments_count%> </span>
@@ -20,6 +20,6 @@
       </li>
     <%end%>
   </ul>
-  <button><%= link_to "See all posts", user_recent_posts_path(@author)%></button>
+  <button><%= link_to "See all posts", user_post_index_path(@author)%></button>
   <button><%= link_to 'Create new post', new_post_path(@user)%></button>
 </section>

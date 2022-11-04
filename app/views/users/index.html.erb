@@ -5,7 +5,7 @@
       <li> 
         <img src=<%= user.photo %> />
         <div>
-          <h3><%= link_to user.name, user_path(user) %> </h3>
+          <h3><%= link_to user.name, user_show_path(user) %> </h3>
           <span><%= user.posts_count %></span>
         </div>
       </li>

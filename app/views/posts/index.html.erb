@@ -9,14 +9,19 @@
    <%@posts.each do |post|%>
     <li> 
       <div>
-        <h3><%=link_to post.title, user_all_posts_path(@author, post)%></h3>
+        <h3><%=link_to post.title, user_post_show_path(@author, post)%></h3>
         <p><%=post.text%></p>
         <div>
           <span> <%=post.comments_count%> </span>
            <span> <%=post.likes_count%> </span>
         </div>
+        <% if can? :destroy, post%>
+          <%= form_with url: "/users/#{@author.id}/posts/#{post.id}" , method: :delete do |f|%>
+            <%= f.submit 'Delete' %>
+          <%end%>
+        <%end%>
         <%post.recent_comments.includes(:author).each do |comment| %>
-          <li><p> <span><%=comment.author.name %> :</span> <%=comment.text%>  </p></li>
+          <li><p> <span><%=comment.author.name %> :</span> <%=comment.text%></p></li>
         <%end%>
       </div>
     </li>
