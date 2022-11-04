@@ -3,15 +3,15 @@ class Api::CommentsController < ApplicationController
   before_action :set_format, :authenticate_request
 
   def create
-    @comment = Comment.new(author_id: params[:user_id], post_id: params[:id], 
-      text: comment_params[:text])
+    @comment = Comment.new(author_id: params[:user_id], post_id: params[:id],
+                           text: comment_params[:text])
     if @comment.save
-        render json: @comment, status: :created
+      render json: @comment, status: :created
     else
-        render json: @comment.errors, status: :unprocessable_entity
+      render json: @comment.errors, status: :unprocessable_entity
     end
   end
-  
+
   private
 
   def set_format
