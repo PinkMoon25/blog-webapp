@@ -56,6 +56,7 @@ group :development, :test do
   gem 'debug', platforms: %i[mri mingw x64_mingw]
   gem 'rails-controller-testing'
   gem 'rspec-rails', '~> 6.0.0'
+  gem 'rswag-specs'
 end
 
 group :development do
@@ -87,4 +88,3 @@ gem 'jwt'
 gem 'simple_command'
 
 gem 'rswag'
-

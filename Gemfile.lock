@@ -292,6 +292,7 @@ DEPENDENCIES
   rails-controller-testing
   rspec-rails (~> 6.0.0)
   rswag
+  rswag-specs
   selenium-webdriver
   simple_command
   sprockets-rails
