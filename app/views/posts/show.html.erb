@@ -18,7 +18,7 @@
   <%@post.comments.each do |comment|%>
     <li><p> <span><%=comment.author.name %> :</span> <%=comment.text%>  </p></li>
     <% if can? :destroy, comment%>
-      <%= form_with url: "/users/#{@post.author.id}/posts/#{@post.id}/comments" , method: :delete do |f|%>
+      <%= form_with url: "/users/#{@post.author.id}/posts/#{@post.id}/comments/#{comment.id}" , method: :delete do |f|%>
         <%= f.submit 'Delete' %>
       <%end%>
     <%end%>
